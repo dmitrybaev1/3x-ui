@@ -15,7 +15,6 @@ install_base() {
 }
 
 config_after_install() {
-	echo "variables below"
 	echo "variables: $1 $2 $3 $4"
 	/usr/local/x-ui/x-ui setting -username "$1" -password "$2" -port "$3" -webBasePath "$4"
     /usr/local/x-ui/x-ui migrate
@@ -47,12 +46,14 @@ install_x-ui() {
     wget --no-check-certificate -O /usr/bin/x-ui https://raw.githubusercontent.com/dmitrybaev1/3x-ui/refs/heads/main/x-ui.sh
     chmod +x /usr/local/x-ui/x-ui.sh
     chmod +x /usr/bin/x-ui
-    config_after_install
+	echo "variables install x-ui: $1 $2 $3 $4"
+    config_after_install $1 $2 $3 $4
 
     systemctl daemon-reload
     systemctl enable x-ui
     systemctl start x-ui
 }
 
-install_base
+echo "variables root: $1 $2 $3 $4"
+install_base $1 $2 $3 $4
 install_x-ui 
