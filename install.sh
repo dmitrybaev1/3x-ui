@@ -15,6 +15,7 @@ install_base() {
 }
 
 config_after_install() {
+	echo "variables below"
 	echo "variables: $1 $2 $3 $4"
 	/usr/local/x-ui/x-ui setting -username "$1" -password "$2" -port "$3" -webBasePath "$4"
     /usr/local/x-ui/x-ui migrate
