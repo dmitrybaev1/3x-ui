@@ -55,5 +55,5 @@ install_x-ui() {
 }
 
 echo "variables root: $1 $2 $3 $4"
-install_base $1 $2 $3 $4
-install_x-ui 
+install_base
+install_x-ui $1 $2 $3 $4 
