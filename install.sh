@@ -15,11 +15,7 @@ install_base() {
 }
 
 config_after_install() {
-    local username="$1"
-	local password="$2"
-	local port="$3"
-	local webBasePath="$4"
-	/usr/local/x-ui/x-ui setting -username "${username}" -password "${password}" -port "${port}" -webBasePath "${webBasePath}"
+	/usr/local/x-ui/x-ui setting -username "$1" -password "$2" -port "$3" -webBasePath "$4"
     /usr/local/x-ui/x-ui migrate
 }
 
@@ -49,7 +45,7 @@ install_x-ui() {
     wget --no-check-certificate -O /usr/bin/x-ui https://raw.githubusercontent.com/dmitrybaev1/3x-ui/refs/heads/main/x-ui.sh
     chmod +x /usr/local/x-ui/x-ui.sh
     chmod +x /usr/bin/x-ui
-    config_after_install $1 $2 $3 $4
+    config_after_install
 
     systemctl daemon-reload
     systemctl enable x-ui
