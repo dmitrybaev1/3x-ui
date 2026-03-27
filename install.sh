@@ -22,7 +22,7 @@ config_after_install() {
 
 install_x-ui() {
     cd /usr/local/
-	last_version="v2.4.2"
+	last_version="v2.4.10"
 	url="https://github.com/MHSanaei/3x-ui/releases/download/${last_version}/x-ui-linux-amd64.tar.gz"
 	wget -N --no-check-certificate -O /usr/local/x-ui-linux-amd64.tar.gz ${url}
 	if [[ $? -ne 0 ]]; then
